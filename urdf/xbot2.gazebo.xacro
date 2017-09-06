@@ -33,13 +33,13 @@
           <resolution>0.01</resolution>
         </range>
         <noise>
-          <!-- Noise parameters based on spec for SICK TIM561 (10m version) -->
+          <!-- Noise parameters based on spec for SICK TIM571 (25m version) -->
           <type>gaussian</type>
           <mean>0.0</mean>
           <stddev>0.02</stddev>
         </noise>
       </ray>
-      <plugin name="gazebo_ros_base_hokuyo_controller" filename="libgazebo_ros_laser.so">
+      <plugin name="gazebo_ros_base_sick_controller" filename="libgazebo_ros_laser.so">
         <topicName>/base_scan</topicName>
         <frameName>laser_link</frameName>
       </plugin>
@@ -51,9 +51,5 @@
     <material>Gazebo/Red</material>
   </gazebo>
 
-  <!-- Load the plugin -->
-  <gazebo>
-    <plugin name="fetch_gazebo_plugin" filename="libfetch_gazebo_plugin.so"/>
-  </gazebo>
 
 </robot>

@@ -22,7 +22,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://xbot2_description/meshes/base_link.STL" />
+        <mesh filename="package://xbot2_description/meshes/base_link.dae" />
       </geometry>
       <material name="">
         <texture filename="package://xbot2_description/meshes/black_felt.png" />
@@ -31,7 +31,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://xbot2_description/meshes/base_link.STL" />
+        <mesh filename="package://xbot2_description/meshes/base_link.dae" />
       </geometry>
     </collision>
   </link>
@@ -41,7 +41,7 @@
     <axis rpy="0 0 0" xyz="0 0 0"/>
     <parent link="base_link"/>
     <child link="laser_mount_link"/>
-    <origin rpy="0 0 0" xyz="0 0 .2"/>
+    <origin rpy="0 3.1416 3.1416" xyz=".08 -0.03 .253"/>
   </joint>
 
   </xacro:macro>

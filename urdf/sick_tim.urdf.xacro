@@ -20,8 +20,8 @@
 
   <xacro:macro name="sick_tim571" params="name ros_topic">
     <xacro:sick_tim name="${name}" ros_topic="${ros_topic}" 
-      length="0.06" width="0.06" height="0.086" mass="0.250" z_offset="0.06296"
-      min_range="0.05" max_range="10.0"
+      length="0.06" width="0.06" height="0.086" mass="0.250" z_offset="0.05"
+      min_range="0.05" max_range="25.0"
       mesh="package://xbot2_description/meshes/sick_tim571.stl" />
   </xacro:macro>
 
@@ -84,7 +84,7 @@
           </range>
         </ray>
         <plugin name="gazebo_ros_${name}_controller" filename="libgazebo_ros_laser.so">
-          <gaussianNoise>0.005</gaussianNoise>
+          <gaussianNoise>0.01</gaussianNoise>
           <alwaysOn>true</alwaysOn>
           <updateRate>${update_rate}</updateRate>
           <topicName>${ros_topic}</topicName>
