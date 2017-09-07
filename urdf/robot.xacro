@@ -12,5 +12,7 @@
   <xacro:sick_tim571 name="laser" ros_topic="scan"   />
 
 
+  <xacro:include filename="$(find xbot2_description)/urdf/xbot2.gazebo.xacro" />
+  <xacro:include filename="$(find xbot2_description)/urdf/sick_tim.gazebo.xacro" />
   
 </robot>
