@@ -19,6 +19,15 @@
   </node>
 
 
+  <!--Load the joint controllers to param server-->
+  <rosparam file="$(find xbot2_description)/config/xbot2_control.yaml" command="load"/>
+
+  <!--Load controllers-->
+  <node name="spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/simple_robot" args="joint_state_controller
+    joint_1_position_controller
+    joint_2_position_controller"/>
+</launch>
 
   <!-- Publish base_scan_raw if anything subscribes to it -->
   <!--node name="publish_base_scan_raw" pkg="topic_tools" type="relay" args="base_scan base_scan_raw" >

@@ -66,6 +66,13 @@
     </inertial>
   </link>
 
+  <joint type="continuous" name="left_wheel_hinge">
+    <axis xyz="0 1 0" rpy="0 0 0"/>
+    <origin xyz="0 0.3 0.08" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="left_wheel"/>
+    <joint_properties damping="0.0" friction="0.0"/>
+  </joint>
 
   <link name="right_wheel">
     <collision name="collision">
@@ -91,24 +98,69 @@
     </inertial>
   </link>
 
-  <joint type="continuous" name="left_wheel_hinge">
-    <origin xyz="0 0.3 0.08" rpy="0 0 0"/>
-    <child link="left_wheel"/>
-    <parent link="base_link"/>
-    <axis xyz="0 1 0" rpy="0 0 0"/>
-    <limit effort="100" velocity="100"/>
-    <joint_properties damping="0.0" friction="0.0"/>
-  </joint>
-
   <joint type="continuous" name="right_wheel_hinge">
-    <origin xyz="0 -0.3 0.08" rpy="0 0 0"/>
-    <child link="right_wheel"/>
-    <parent link="base_link"/>
     <axis xyz="0 1 0" rpy="0 0 0"/>
-    <limit effort="100" velocity="100"/>
+    <origin xyz="0 -0.3 0.08" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="right_wheel"/>
     <joint_properties damping="0.0" friction="0.0"/>
   </joint>
 
+  <link name="yaw_platform">
+    <inertial>
+      <origin  xyz="-0.0033678 -0.047443 0.62953" rpy="0 0 0" />
+      <mass value=".109" />
+      <inertia ixx="0.82582" ixy="-0.0019603" ixz="-0.00043035" iyy="0.92115" iyz="0.0013243" izz="0.2601" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 1.5708" />
+      <geometry>
+        <mesh filename="package://xbot2_description/meshes/yaw_platform.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 1.5708" />
+      <geometry>
+        <mesh filename="package://xbot2_description/meshes/yaw_platform.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="base_to_yaw_platform" type="revolute">
+    <axis xyz="0 0 1"/>
+    <parent link="base_link"/>
+    <child link="yaw_platform"/>
+    <origin rpy="0 0 0" xyz="0 0 1.07"/>
+    <limit effort="100" velocity="100" lower="-1.57" upper="1.57" />
+  </joint>
+
+  <link name="pitch_platform">
+    <inertial>
+      <origin  xyz="-0.0033678 -0.047443 0.62953" rpy="0 0 0" />
+      <mass value=".109" />
+      <inertia ixx="0.82582" ixy="-0.0019603" ixz="-0.00043035" iyy="0.92115" iyz="0.0013243" izz="0.2601" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 3.1416 1.5708" />
+      <geometry>
+        <mesh filename="package://xbot2_description/meshes/pitch_platform.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 3.1416 1.5708" />
+      <geometry>
+        <mesh filename="package://xbot2_description/meshes/pitch_platform.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="yaw_to_pitch_platform" type="revolute">
+    <axis xyz="0 1 0"/>
+    <parent link="yaw_platform"/>
+    <child link="pitch_platform"/>
+    <origin rpy="0 0 0" xyz="0 0 .08"/>
+    <limit effort="100" velocity="100" lower="-1.57" upper="1.57" />
+  </joint>
 
   </xacro:macro>
 </robot>
