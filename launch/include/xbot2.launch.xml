@@ -1,7 +1,7 @@
 <launch>
 
-  <arg name="x" default="0.0" />
-  <arg name="y" default="0.0" />
+  <arg name="x" default="3.0" />
+  <arg name="y" default=".0" />
   <arg name="z" default="0.0" />
   <arg name="yaw" default="0.0" />
 
@@ -23,9 +23,9 @@
   <param name="robot/version" value="0.0.1" />
 
   <!-- Publish base_scan_raw if anything subscribes to it -->
-  <node name="publish_base_scan_raw" pkg="topic_tools" type="relay" args="base_scan base_scan_raw" >
+  <!--node name="publish_base_scan_raw" pkg="topic_tools" type="relay" args="base_scan base_scan_raw" >
     <param name="lazy" type="bool" value="True"/>
-  </node>
+  </node-->
 
   <!-- Start a mux between application and teleop -->
   <node pkg="topic_tools" type="mux" name="cmd_vel_mux" respawn="true" args="base_controller/command /cmd_vel /teleop/cmd_vel">

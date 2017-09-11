@@ -9,7 +9,7 @@
     <fdir1>1 0 0</fdir1>
     <maxVel>10.0</maxVel>
     <minDepth>0.0005</minDepth>
-    <material>Gazebo/Black</material>
+    <material>PR2/Grey0</material>
   </gazebo>
 
   <!-- SICK TIM571 (25m Range) -->

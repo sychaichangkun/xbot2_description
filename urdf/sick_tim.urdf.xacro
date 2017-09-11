@@ -20,7 +20,7 @@
 
   <xacro:macro name="sick_tim571" params="name ros_topic">
     <xacro:sick_tim name="${name}" ros_topic="${ros_topic}" 
-      length="0.06" width="0.06" height="0.086" mass="0.250" z_offset="0.05"
+      length="0.06" width="0.06" height="0.086" mass="0.250" z_offset="0.02"
       min_range="0.05" max_range="25.0"
       mesh="package://xbot2_description/meshes/sick_tim571.stl" />
   </xacro:macro>
@@ -62,7 +62,7 @@
 
   <xacro:macro name="sick_tim_laser_gazebo_v0" params="name link ros_topic update_rate min_angle max_angle min_range max_range">
     <gazebo reference="${link}">
-      <material value="Gazebo/Blue" />
+      <material value="Gazebo/LightWood" />
       <sensor type="ray" name="${name}">
         <always_on>true</always_on>
         <update_rate>${update_rate}</update_rate>
@@ -71,7 +71,7 @@
         <ray>
           <scan>
             <horizontal>
-              <samples>271</samples>
+              <samples>810</samples>
               <resolution>1</resolution>
               <min_angle>${min_angle}</min_angle>
               <max_angle>${max_angle}</max_angle>
