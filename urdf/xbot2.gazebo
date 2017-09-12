@@ -11,7 +11,7 @@
       <updateRate>20</updateRate>
       <leftJoint>left_wheel_hinge</leftJoint>
       <rightJoint>right_wheel_hinge</rightJoint>
-      <wheelSeparation>0.4</wheelSeparation>
+      <wheelSeparation>0.5</wheelSeparation>
       <wheelDiameter>0.1</wheelDiameter>
       <torque>20</torque>
       <robotBaseFrame>base_footprint</robotBaseFrame>
@@ -20,5 +20,26 @@
     </plugin>
   </gazebo>
 
+  
+  <gazebo reference="base_link">
+    <mu1>.5</mu1>
+    <mu2>.5</mu2>
+    <kp>100000</kp>
+    <kd>1</kd>
+  </gazebo>
+
+  <gazebo reference="right_wheel">
+    <mu1>.5</mu1>
+    <mu2>.5</mu2>
+
+  </gazebo>  <gazebo reference="left_wheel">
+    <mu1>.5</mu1>
+    <mu2>.5</mu2>
+  </gazebo>
+
+  <gazebo reference="yaw_platform">
+    <mu1>.5</mu1>
+    <mu2>.5</mu2>
+  </gazebo>
 
 </robot>
