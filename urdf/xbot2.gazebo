@@ -8,11 +8,11 @@
       <commandTopic>cmd_vel</commandTopic>
       <legacyMode>false</legacyMode>
       <alwaysOn>true</alwaysOn>
-      <updateRate>20</updateRate>
+      <updateRate>50</updateRate>
       <leftJoint>left_wheel_hinge</leftJoint>
       <rightJoint>right_wheel_hinge</rightJoint>
-      <wheelSeparation>0.5</wheelSeparation>
-      <wheelDiameter>0.1</wheelDiameter>
+      <wheelSeparation>0.49</wheelSeparation>
+      <wheelDiameter>0.095</wheelDiameter>
       <torque>20</torque>
       <robotBaseFrame>base_footprint</robotBaseFrame>
       <publishWheelTF>true</publishWheelTF>
@@ -20,7 +20,13 @@
     </plugin>
   </gazebo>
 
-  
+  <!--gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/xbot2</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </gazebo-->
+
   <gazebo reference="base_link">
     <mu1>.5</mu1>
     <mu2>.5</mu2>
@@ -31,8 +37,9 @@
   <gazebo reference="right_wheel">
     <mu1>.5</mu1>
     <mu2>.5</mu2>
+  </gazebo>
 
-  </gazebo>  <gazebo reference="left_wheel">
+  <gazebo reference="left_wheel">
     <mu1>.5</mu1>
     <mu2>.5</mu2>
   </gazebo>
@@ -41,5 +48,40 @@
     <mu1>.5</mu1>
     <mu2>.5</mu2>
   </gazebo>
+
+  <!--Transmission and actuators-->
+  <transmission name="tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="base_to_yaw_platform">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="yaw_motor">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!--transmission name="tran2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_wheel_hinge">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+    </joint>
+  <actuator name="left_motor">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission-->
+
+  <!--transmission name="tran3">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_wheel_hinge">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+    </joint>
+  <actuator name="right_motor">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission-->
+
 
 </robot>

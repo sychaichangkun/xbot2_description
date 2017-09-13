@@ -65,7 +65,7 @@
 
   <joint type="continuous" name="left_wheel_hinge">
     <axis xyz="0 1 0" rpy="0 0 0"/>
-    <origin xyz="0 0.25 .0953" rpy="0 0 0"/>
+    <origin xyz="0 0.25 .095" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child link="left_wheel"/>
     <joint_properties damping="0.0" friction="0.0"/>
@@ -94,7 +94,7 @@
 
   <joint type="continuous" name="right_wheel_hinge">
     <axis xyz="0 1 0" rpy="0 0 0"/>
-    <origin xyz="0 -0.25 .0953" rpy="0 0 0"/>
+    <origin xyz="0 -0.25 .095" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child link="right_wheel"/>
     <joint_properties damping="0.0" friction="0.0"/>
@@ -155,6 +155,8 @@
     <origin rpy="0 0 0" xyz="0 0 .08"/>
     <limit effort="100" velocity="100" lower="-1.57" upper="1.57" />
   </joint -->
+
+
 
   </xacro:macro>
 </robot>
