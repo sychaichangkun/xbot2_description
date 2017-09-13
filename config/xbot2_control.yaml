@@ -9,6 +9,11 @@ xbot2:
     joint: base_to_yaw_platform
     pid: {p: 100.0, i: 0.01, d: 10.0}
 
+  pitch_platform_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: yaw_to_pitch_platform
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+
   mobile_base_controller:
     type: "diff_drive_controller/DiffDriveController"
     left_wheel: 'left_wheel'

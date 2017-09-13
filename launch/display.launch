@@ -1,7 +1,7 @@
 <launch>
   <arg    name="model" />
   <arg    name="gui"    default="False" />
-  <param name="robot_description" command="$(find xacro)/xacro.py $(find xbot2_description)/urdf/robot.xacro" />
+  <param name="robot_description" command="$(find xacro)/xacro.py --inorder $(find xbot2_description)/urdf/robot.xacro" />
   <param    name="use_gui"    value="$(arg gui)" />
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
     <param name="use_gui" value="TRUE"/>

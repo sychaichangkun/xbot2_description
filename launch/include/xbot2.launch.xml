@@ -29,6 +29,7 @@
   <node name="spawner" pkg="controller_manager" type="spawner" respawn="false"
     output="screen" ns="/xbot2" args="joint_state_controller
     yaw_platform_position_controller
+    pitch_platform_position_controller
     mobile_base_controller"/>
 
 
