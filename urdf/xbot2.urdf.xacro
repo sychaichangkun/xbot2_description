@@ -128,33 +128,33 @@
     <limit effort="100" velocity="100" lower="-1.57" upper="1.57" />
   </joint>
 
-  <!--link name="pitch_platform">
+  <link name="pitch_platform">
     <inertial>
-      <origin  xyz="-0.0033678 -0.047443 0.62953" rpy="0 0 0" />
+      <origin  xyz="0 0 0" rpy="0 0 0" />
       <mass value=".05" />
       <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.0001" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 3.1416 1.5708" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://xbot2_description/meshes/pitch_platform.dae" />
+        <mesh filename="package://xbot2_description/meshes/pitch_platform.stl" />
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 3.1416 1.5708" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://xbot2_description/meshes/pitch_platform.dae" />
+        <mesh filename="package://xbot2_description/meshes/pitch_platform.stl" />
       </geometry>
     </collision>
-  </link -->
+  </link>
 
-  <!-- joint name="yaw_to_pitch_platform" type="revolute">
+  <joint name="yaw_to_pitch_platform" type="revolute">
     <axis xyz="0 1 0"/>
     <parent link="yaw_platform"/>
     <child link="pitch_platform"/>
-    <origin rpy="0 0 0" xyz="0 0 .08"/>
+    <origin rpy="0 0 0" xyz="0 0 .02"/>
     <limit effort="100" velocity="100" lower="-1.57" upper="1.57" />
-  </joint -->
+  </joint>
 
 
 
