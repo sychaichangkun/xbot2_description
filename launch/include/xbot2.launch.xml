@@ -11,16 +11,12 @@
   <!-- URDF and TF support -->
   <param name="robot_description" command="$(find xacro)/xacro.py $(find xbot2_description)/urdf/robot.xacro" />
   <!-- Put a robot in gazebo, make it look pretty -->
-  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" 
         args="-urdf -x $(arg x) -y $(arg y) -z $(arg z) -Y $(arg yaw) -model xbot2 -param robot_description"/>
 
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" >
-    <param name="publish_frequency" value="100.0"/>
-  </node>
-
-  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+  <!--node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
     <param name="use_gui" value="false"/>
-  </node>
+  </node-->
 
   <!--Load the joint controllers to param server-->
   <rosparam file="$(find xbot2_description)/config/xbot2_control.yaml" command="load"/>
@@ -30,9 +26,13 @@
     output="screen" ns="/xbot2" args="joint_state_controller
     yaw_platform_position_controller
     pitch_platform_position_controller
-    mobile_base_controller"/>
+    "/>  <!--mobile_base_controller-->
 
 
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" ns="/xbot2" respawn="false" output="screen">
+    <param name="publish_frequency" value="100.0"/>
+  </node>
 
   <!-- Publish base_scan_raw if anything subscribes to it -->
   <!--node name="publish_base_scan_raw" pkg="topic_tools" type="relay" args="base_scan base_scan_raw" >

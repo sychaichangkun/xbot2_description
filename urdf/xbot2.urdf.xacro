@@ -44,9 +44,9 @@
 
   <link name="left_wheel">
     <collision name="collision">
-      <origin xyz="0 0 0" rpy="0 0 -1.5708"/>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
       <geometry>
-        <mesh filename="package://xbot2_description/meshes/wheel.dae" />
+        <cylinder radius="0.095" length="0.04"/>
       </geometry>
     </collision>
     <visual name="left_wheel_visual">
@@ -58,24 +58,24 @@
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 -1.5708"/>
       <mass value="1.5"/>
-      <cylinder_inertia m="1.5" r="0.09" h="0.05"/>
-      <inertia ixx=".00335" ixy="0" ixz="0" iyy=".006" iyz="0" izz=".00335" />
+      <inertia ixx=".001" ixy="0" ixz="0" iyy=".001" iyz="0" izz=".001" />
     </inertial>
   </link>
 
   <joint type="continuous" name="left_wheel_hinge">
     <axis xyz="0 1 0" rpy="0 0 0"/>
-    <origin xyz="0 0.25 .095" rpy="0 0 0"/>
+    <origin xyz="0 0.245 .095" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child link="left_wheel"/>
+    <limit effort="100000" velocity="1000"/>
     <joint_properties damping="0.0" friction="0.0"/>
   </joint>
 
   <link name="right_wheel">
     <collision name="collision">
-      <origin xyz="0 0 0" rpy="0 0 1.5708 "/>
+      <origin xyz="0 0 0" rpy="-1.5708  0 0"/>
       <geometry>
-        <mesh filename="package://xbot2_description/meshes/wheel.dae" />
+        <cylinder radius="0.095" length="0.04"/>
       </geometry>
     </collision>
     <visual name="right_wheel_visual">
@@ -87,16 +87,16 @@
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 1.5708"/>
       <mass value="1.5"/>
-      <cylinder_inertia m="1.5" r="0.09" h="0.05"/>
-      <inertia ixx=".00335" ixy="0" ixz="0" iyy=".006" iyz="0" izz=".00335" />
+      <inertia ixx=".001" ixy="0" ixz="0" iyy=".001" iyz="0" izz=".001" />
     </inertial>
   </link>
 
   <joint type="continuous" name="right_wheel_hinge">
     <axis xyz="0 1 0" rpy="0 0 0"/>
-    <origin xyz="0 -0.25 .095" rpy="0 0 0"/>
+    <origin xyz="0 -0.245 .095" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child link="right_wheel"/>
+    <limit effort="100000" velocity="1000"/>
     <joint_properties damping="0.0" friction="0.0"/>
   </joint>
 
