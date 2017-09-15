@@ -5,8 +5,6 @@ find_package(catkin REQUIRED COMPONENTS
 	rospy
 	std_msgs
 	message_generation
-	urdf
-	xacro
 	controller_manager
 	gazebo_ros
 )
