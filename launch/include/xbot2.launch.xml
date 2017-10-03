@@ -1,12 +1,10 @@
 <launch>
 
-  <arg name="x" default="3.0" />
-  <arg name="y" default=".0" />
+  <arg name="x" default="5.0" />
+  <arg name="y" default="-1.0" />
   <arg name="z" default="0.0" />
   <arg name="yaw" default="0.0" />
 
-  <!-- Setup controllers -->
-  <!-- rosparam file="$(find fetch_gazebo)/config/freight_controllers.yaml" command="load" / -->
 
   <!-- URDF and TF support -->
   <param name="robot_description" command="$(find xacro)/xacro.py $(find xbot2_description)/urdf/robot.xacro" />
@@ -18,10 +16,9 @@
     <param name="use_gui" value="false"/>
   </node-->
 
-  <!--Load the joint controllers to param server-->
+  <!-- Setup controllers -->
   <rosparam file="$(find xbot2_description)/config/xbot2_control.yaml" command="load"/>
-
-  <!--Load controllers-->
+  <!--Load the joint controllers to param server-->
   <node name="spawner" pkg="controller_manager" type="spawner" respawn="false"
     output="screen" ns="/xbot2" args="joint_state_controller
     yaw_platform_position_controller
