@@ -2,11 +2,11 @@
 <COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <asset>
     <contributor>
-      <author>Changkun Chai, Email: chaichangkun@163.com</author>
+      <author>Blender User</author>
       <authoring_tool>Blender 2.79.0 commit date:2017-09-11, commit time:10:43, hash:5bd8ac9abfa</authoring_tool>
     </contributor>
-    <created>2017-10-03T11:57:38</created>
-    <modified>2017-10-03T11:57:38</modified>
+    <created>2017-10-10T23:41:21</created>
+    <modified>2017-10-10T23:41:21</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -131,7 +131,7 @@
               <texture texture="ISCAS_museum2_png-sampler"/>
             </diffuse>
             <specular>
-              <color sid="specular">0.35 0.35 0.35 1</color>
+              <color sid="specular">0.3191344 0.3191344 0.3191344 1</color>
             </specular>
             <shininess>
               <float sid="shininess">50</float>
